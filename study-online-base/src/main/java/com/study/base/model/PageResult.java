@@ -1,11 +1,7 @@
 package com.study.base.model;
 
-<<<<<<< HEAD
 import lombok.Data;
 import lombok.ToString;
-
-=======
->>>>>>> 944d85bc3c5331ebbbd902882b861dc4686bebff
 import java.io.Serializable;
 import java.util.List;
 
@@ -17,12 +13,8 @@ import java.util.List;
  * @Return:
 */
 
-<<<<<<< HEAD
 @Data
 @ToString
-=======
-
->>>>>>> 944d85bc3c5331ebbbd902882b861dc4686bebff
 public class PageResult<T> implements Serializable {
     private List<T> items;
     private long counts;

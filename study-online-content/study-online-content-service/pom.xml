@@ -16,7 +16,6 @@
         </plugins>
     </build>
 
-
     <parent>
         <artifactId>study-online-content</artifactId>
         <groupId>com.study</groupId>
