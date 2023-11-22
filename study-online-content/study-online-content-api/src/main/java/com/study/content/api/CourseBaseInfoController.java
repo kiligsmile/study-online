@@ -3,6 +3,7 @@ package com.study.content.api;
 import com.study.base.model.PageParams;
 import com.study.base.model.PageResult;
 import com.study.content.model.dto.AddCourseDto;
+import com.study.content.model.dto.CourseBaseInfoDto;
 import com.study.content.model.dto.QueryCourseParamsDto;
 import com.study.content.model.po.CourseBase;
 import com.study.content.service.CourseBaseInfoService;
@@ -39,9 +40,13 @@ public class CourseBaseInfoController {
     }
 
     @ApiOperation("新增课程")
-    @PostMapping("/content/course")
-    public PageResult createCourseBase(@RequestBody AddCourseDto addCourseDto){
-        return null;
+    @PostMapping("/course")
+    public CourseBaseInfoDto createCourseBase(@RequestBody AddCourseDto addCourseDto){
+
+        //机构id，由于认证系统没有上线暂时硬编码
+        Long companyId = 1232141425L;
+        CourseBaseInfoDto courseBase = courseBaseInfoService.createCourseBase(companyId, addCourseDto);
+        return courseBase;
     }
 
 
