@@ -2,6 +2,7 @@ package com.study.content.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.study.base.exception.studyOnlineException;
 import com.study.base.model.PageParams;
 import com.study.base.model.PageResult;
 import com.study.content.mapper.CourseBaseMapper;
@@ -90,33 +91,34 @@ public class CourseBaseInfoServiceImpl implements CourseBaseInfoService {
     public CourseBaseInfoDto createCourseBase(Long companyId, AddCourseDto dto ) {
 //        参数的合法性校验
         //合法性校验
-        if (StringUtils.isBlank(dto.getName())) {
-            throw new RuntimeException("课程名称为空");
-        }
-
-        if (StringUtils.isBlank(dto.getMt())) {
-            throw new RuntimeException("课程分类为空");
-        }
-
-        if (StringUtils.isBlank(dto.getSt())) {
-            throw new RuntimeException("课程分类为空");
-        }
-
-        if (StringUtils.isBlank(dto.getGrade())) {
-            throw new RuntimeException("课程等级为空");
-        }
-
-        if (StringUtils.isBlank(dto.getTeachmode())) {
-            throw new RuntimeException("教育模式为空");
-        }
-
-        if (StringUtils.isBlank(dto.getUsers())) {
-            throw new RuntimeException("适应人群为空");
-        }
-
-        if (StringUtils.isBlank(dto.getCharge())) {
-            throw new RuntimeException("收费规则为空");
-        }
+//        if (StringUtils.isBlank(dto.getName())) {
+////            throw new RuntimeException("课程名称为空");
+//            studyOnlineException.cast("课程名称为空");
+//        }
+//
+//        if (StringUtils.isBlank(dto.getMt())) {
+//            studyOnlineException.cast("课程分类为空");
+//        }
+//
+//        if (StringUtils.isBlank(dto.getSt())) {
+//            studyOnlineException.cast("课程分类为空");
+//        }
+//
+//        if (StringUtils.isBlank(dto.getGrade())) {
+//            studyOnlineException.cast("课程等级为空");
+//        }
+//
+//        if (StringUtils.isBlank(dto.getTeachmode())) {
+//            studyOnlineException.cast("教育模式为空");
+//        }
+//
+//        if (StringUtils.isBlank(dto.getUsers())) {
+//            studyOnlineException.cast("适应人群为空");
+//        }
+//
+//        if (StringUtils.isBlank(dto.getCharge())) {
+//            studyOnlineException.cast("收费规则为空");
+//        }
 //        向课程基本信息表course_base写入数据
         CourseBase courseBaseNew = new CourseBase();
 //        courseBaseNew.setName(dto.getName());
@@ -159,7 +161,8 @@ public class CourseBaseInfoServiceImpl implements CourseBaseInfoService {
 //        如果课程收费，价格没有填写也需要抛出异常
         if(charge.equals("201001")){
             if(courseMarketNew.getPrice()==null||courseMarketNew.getPrice()<=0){
-                throw new RuntimeException("课程价格不能为空，且必须大于零！");
+//                throw new RuntimeException("课程价格不能为空，且必须大于零！");
+                studyOnlineException.cast("课程价格不能为空，且必须大于零！");
             }
         }
 

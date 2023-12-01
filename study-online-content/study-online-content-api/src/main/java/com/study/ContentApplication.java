@@ -12,7 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Return:
 */
 @EnableSwagger2Doc
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages ="com.study" )
 public class ContentApplication {
     public static void main(String[] args) {
         SpringApplication.run(ContentApplication.class,args);
