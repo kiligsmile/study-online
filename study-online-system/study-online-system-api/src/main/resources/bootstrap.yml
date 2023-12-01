@@ -2,15 +2,34 @@ server:
   servlet:
     context-path: /system
   port: 63110
-#微服务配置
+##微服务配置
+#spring:
+#  application:
+#    name: system-service
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://39.108.175.5:3306/studyonline_system?serverTimezone=UTC&userUnicode=true&useSSL=false&
+#    username: root
+#    password: 123456
+
 spring:
-  application:
-    name: system-service
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://10.211.55.4:3306/studyonline_system?serverTimezone=UTC&userUnicode=true&useSSL=false&
+    url: jdbc:mysql://39.108.175.5:3306/studyonline_system?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     username: root
     password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      max-active: 20
+      min-idle: 5
+      validation-query: select x
+      initial-size: 3
+      max-wait: 5000
+      stat-view-servlet:
+        allow:
+        deny:
+        url-pattern: /druid/*
+        enabled: true  #启用数据源监控
 
 # 日志文件配置路径
 logging:
